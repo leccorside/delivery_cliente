@@ -1,0 +1,59 @@
+
+<ion-content>
+
+  <div class="skip">
+    <span (click)="pular()">Pular</span>
+  </div>
+
+  <ion-slides pager="true" [options]="slideOpts" #myslide>
+
+
+      <ion-slide class="telaslide1">
+        <div class="slide1">
+          <img src="../../assets/images/intro1.png">
+          <div class="infosslide">
+            <h1>Prepare seu pedido</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="btnproximo">
+          <span class="btn1" (click)="proximo()">Próximo</span>
+        </div>
+      </ion-slide>
+
+      <ion-slide class="telaslide2">
+        <div class="slide1">
+          <img src="../../assets/images/intro2.png">
+          <div class="infosslide">
+            <h1>Encontre um entregador</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="btnanterior">
+          <span class="btn2" (click)="anterior()">Anterior</span>
+        </div>
+        <div class="btnproximo">
+          <span class="btn22" (click)="proximo()">Próximo</span>
+        </div>
+      </ion-slide>
+
+      <ion-slide class="telaslide3">
+        <div class="slide1">
+          <img src="../../assets/images/intro3.png">
+          <div class="infosslide">
+            <h1>Acompanhe a entrega</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="btnanterior">
+          <span class="btn3" (click)="anterior()">Anterior</span>
+        </div>
+        <div class="btnproximo">
+          <span class="btn33" (click)="comecar()">Começar</span>
+        </div>
+      </ion-slide>
+
+
+  </ion-slides>
+
+</ion-content>

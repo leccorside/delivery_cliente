@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Verificação</ion-title>
+	</ion-toolbar>
+	<div class="text_box">
+		<p>Entre com o código de 6 dígitos enviado em seu e-mail.</p>
+	</div>
+</ion-header>
+
+<ion-content>
+	<div class="form">
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<div class="item_inner">
+					<ion-label position="fixed">Código</ion-label>
+					<ion-input type="name" value="" placeholder="Código de 6 dígitos"></ion-input>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>
+<ion-footer class="ion-no-border">
+	<ion-button size="large"   class="btn" (click)="submit()">Autenticar</ion-button>
+</ion-footer>

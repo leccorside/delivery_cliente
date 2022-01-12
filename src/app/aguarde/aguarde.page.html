@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Registre-se</ion-title>
+	</ion-toolbar>
+	<div class="text_box">
+		<p>Agora você precisa mandar uma foto dos seus documentos</p>
+	</div>
+</ion-header>
+
+<ion-content>
+	<div class="form">
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<div class="item_inner">
+					<ion-label position="fixed">Código</ion-label>
+					<ion-input type="name" value="" placeholder="Código de 6 dígitos"></ion-input>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>
+<ion-footer class="ion-no-border">
+	<ion-button size="large"   class="btn" (click)="enviar()">Enviar</ion-button>
+</ion-footer>

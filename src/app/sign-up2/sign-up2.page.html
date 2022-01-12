@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Registre-se</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<!--<div class="profile_container d-flex">
+		<ion-icon class="zmdi zmdi-image"></ion-icon>
+		<div class="img_box center_img">
+			<img src="assets/images/profile_pic_placeholder.png" class="crop_img"> 
+		</div>
+		<ion-icon class="zmdi zmdi-camera"></ion-icon>
+	</div>-->
+	<div class="form">
+
+		<h3>Insira seu e-mail para verificação</h3>
+		<ion-list lines="none">
+
+			<ion-item lines="none">
+				<div class="item_inner">
+					<ion-label position="fixed">E-mail</ion-label>
+					<ion-input type="enail" value="" placeholder="E-mail"></ion-input>
+				</div>
+			</ion-item>
+
+		</ion-list>
+	</div>
+</ion-content>
+<ion-footer class="ion-no-border">
+	<ion-button size="large"  class="btn" (click)="continue()">Continuar</ion-button>
+</ion-footer>

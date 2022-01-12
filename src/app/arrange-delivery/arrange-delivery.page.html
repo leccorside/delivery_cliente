@@ -1,0 +1,260 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<span *ngIf="tab == 'pickup_location'">Buscar entregador</span>
+			<span *ngIf="tab == 'drop_location'">Local de saída</span>
+			<span *ngIf="tab == 'courier_info'">Informações da entrega</span>
+			<span *ngIf="tab == 'confirm'">Confirmar informações</span>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="tab_btn_container">
+		<ion-segment [(ngModel)]="tab" scrollable lines="none" mode="md">
+			<ion-segment-button value="pickup_location">
+				<h2>
+					<ion-icon class="zmdi zmdi-pin"></ion-icon>
+				</h2>
+			</ion-segment-button>
+			<ion-segment-button value="drop_location">
+				<h2>
+					<ion-icon class="zmdi zmdi-navigation"></ion-icon>
+				</h2>
+			</ion-segment-button>
+			<ion-segment-button value="courier_info">
+				<h2>
+					<ion-icon class="zmdi zmdi-mall"></ion-icon>
+				</h2>
+			</ion-segment-button>
+			<ion-segment-button value="confirm">
+				<h2>
+					<ion-icon class="zmdi zmdi-assignment"></ion-icon>
+				</h2>
+			</ion-segment-button>
+		</ion-segment>
+	</div>
+
+
+	<!--	 Tab Content start -->
+	<div class="tab_container" [ngSwitch]="tab">
+
+		<!--	Pickup Location section start -->
+		<div class="content" *ngSwitchCase="'pickup_location'">
+			<div class="map">
+				<img src="assets/images/map.png">
+			</div>
+
+			<div class="your_location" style="top: 68%; left: 40%;">
+				<ion-icon class="zmdi zmdi-circle"></ion-icon>
+			</div>
+			<div class="search_box d-flex item_shadow">
+				<ion-icon class="zmdi zmdi-pin ion-text-start"></ion-icon>
+				<ion-searchbar class="ion-no-padding" clear-icon="undefined" searchIcon="hide" placeholder="Local de coleta"></ion-searchbar>
+			</div>
+
+		</div>
+		<!--	Pickup Location section end -->
+
+
+		<!--	Drop Location section start -->
+		<div class="content" *ngSwitchCase="'drop_location'">
+			<div class="map">
+				<img src="assets/images/map.png">
+			</div>
+
+
+			<div class="search_box d-flex item_shadow">
+				<ion-icon class="zmdi zmdi-navigation ion-text-start"></ion-icon>
+				<ion-searchbar class="ion-no-padding" clear-icon="undefined" searchIcon="hide" placeholder="Local de entrega"></ion-searchbar>
+			</div>
+
+		</div>
+		<!--	Drop Location section end -->
+
+
+		<!-- Courier Info section start -->
+		<div class="content courier_info" *ngSwitchCase="'courier_info'">
+			<ion-list lines="none">
+				<ion-card class="courier_type">
+					<h2>Tipo de entrega</h2>
+					<ion-radio-group value="biff">
+						<ion-row>
+							<ion-col size="4">
+								<ion-item>
+									<ion-label>Envelope</ion-label>
+									<ion-radio slot="start" value="envelope"></ion-radio>
+								</ion-item>
+							</ion-col>
+							<ion-col size="4">
+								<ion-item>
+									<ion-label>Caixa</ion-label>
+									<ion-radio slot="start" value="box_pack"></ion-radio>
+								</ion-item>
+							</ion-col>
+							<ion-col size="4">
+								<ion-item>
+									<ion-label>Outro</ion-label>
+									<ion-radio slot="start" value="other"></ion-radio>
+								</ion-item>
+							</ion-col>
+						</ion-row>
+					</ion-radio-group>
+				</ion-card>
+
+				<ion-card class="height_width_lenght">
+					<ion-row class="ion-text-center">
+						<ion-col size="4">
+							<div class="text_box" (click)="height_weight_lenght()">
+								<h3 class="d-flex">
+									<ion-icon class="zmdi zmdi-long-arrow-up ion-text-start"></ion-icon>
+									altura
+								</h3>
+								<h2>60 cm</h2>
+							</div>
+						</ion-col>
+						<ion-col size="4">
+							<div class="text_box" (click)="height_weight_lenght()">
+								<h3 class="d-flex">
+									<ion-icon class="zmdi zmdi-long-arrow-right ion-text-start"></ion-icon>
+									largura
+								</h3>
+								<h2>75 cm</h2>
+							</div>
+						</ion-col>
+						<ion-col size="4">
+							<div class="text_box" (click)="height_weight_lenght()">
+								<h3 class="d-flex">
+									<ion-icon class="zmdi zmdi-arrow-right-top ion-text-start"></ion-icon>
+									comprimento
+								</h3>
+								<h2>124 cm</h2>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-card>
+
+
+				<ion-card class="weight_range">
+					<h2>peso?</h2>
+					<ion-range mode="md" min="-200" max="200"></ion-range>
+					<h3 class="d-flex">0 cm <span class="end">1000 cm</span></h3>
+				</ion-card>
+
+				<ion-card class="frangible d-flex">
+					<h2>é frágil?</h2>
+					<div class="end toggle_box">
+						<span>Sim</span>
+						<ion-toggle mode="ios" checked></ion-toggle>
+					</div>
+				</ion-card>
+
+				<ion-card class="form">
+					<h2>Detalhes da entrega</h2>
+					<ion-item lines="none">
+						<ion-textarea rows="3" placeholder="{{'enter_courier_info' | translate}}"></ion-textarea>
+					</ion-item>
+				</ion-card>
+
+				<ion-card class="delivery_mode">
+					<h2>Modo de entrega</h2>
+					<h3 class="d-flex" (click)="deliverymode()">Entrega econômica
+						<span class="end">
+							R$8.60
+							<ion-icon class="zmdi zmdi-caret-down ion-text-end"></ion-icon>
+						</span>
+					</h3>
+				</ion-card>
+			</ion-list>
+			<div class="btn_container d-flex">
+				<ion-button size="large" shape="round" class="btn end">
+					Continue
+					<ion-icon class="zmdi zmdi-long-arrow-down ion-text-end"></ion-icon>
+				</ion-button>
+			</div>
+		</div>
+		<!-- Courier Info section end -->
+
+
+		<!-- Confirm Info section start -->
+		<div class="content confirm_info" *ngSwitchCase="'confirm'">
+			<ion-list>
+				<ion-card class="address_container">
+					<div class="address d-flex">
+						<ion-icon class="zmdi zmdi-pin ion-text-start"></ion-icon>
+						<div class="text">
+							<h2>Walmart</h2>
+							<h3>Emili Williamson</h3>
+							<p>Rua teste nº2020 - São paulo</p>
+						</div>
+					</div>
+
+					<div class="address d-flex">
+						<ion-icon class="zmdi zmdi-navigation ion-text-start"></ion-icon>
+						<div class="text">
+							<h2>Cidade jardin</h2>
+							<h3>Samantha Smith</h3>
+							<p>Rua teste nº1010 - São paulo</p>
+						</div>
+					</div>
+				</ion-card>
+				<ion-card class="distance">
+					<h2>Distância</h2>
+					<h3 class="d-flex">24.2 km
+						<span class="end">
+							<ion-icon class="zmdi zmdi-navigation ion-text-start"></ion-icon>
+							Ver no mapa
+						</span>
+					</h3>
+				</ion-card>
+
+				<ion-card class="info">
+					<ion-row>
+						<ion-col size="8">
+							<h2>Tipo de entrega</h2>
+							<h3>Caixa</h3>
+						</ion-col>
+						<ion-col size="4">
+							<h2>Frágil</h2>
+							<h3>Sim</h3>
+						</ion-col>
+					</ion-row>
+
+					<ion-row>
+						<ion-col size="8">
+							<h2>altura / peso / comprimento</h2>
+							<h3>60 x 75 x 124 (cm)</h3>
+						</ion-col>
+						<ion-col size="4">
+							<h2>peso</h2>
+							<h3>10 kg</h3>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col size="12">
+							<h2>Informações</h2>
+							<h3>Presente de aniversário contendo flores leves. <br> Leve com cuidado, pois é frágil.</h3>
+						</ion-col>
+					</ion-row>
+				</ion-card>
+				<ion-card class="deliveryMode">
+					<h2>Modo de entrega</h2>
+					<h3 class="d-flex">Entrega Econômica <span class="end">R$8.60</span></h3>
+					<p>Entrega demora de 2 a 3 dias.</p>
+				</ion-card>
+			</ion-list>
+			<div class="btn_container d-flex">
+				<ion-button size="large" shape="round" class="btn end" (click)="proceed_to_payment()">
+					Pagamentos
+					<ion-icon class="zmdi zmdi-long-arrow-right ion-text-end"></ion-icon>
+				</ion-button>
+			</div>
+		</div>
+		<!-- Confirm Info section end -->
+
+	</div>
+	<!--	 Tab Content end -->
+</ion-content>

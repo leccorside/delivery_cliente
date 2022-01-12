@@ -1,0 +1,60 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Registre-se</ion-title>
+	</ion-toolbar>
+	<div class="text_box">
+		<p>Agora você precisa mandar uma foto dos seus documentos</p>
+	</div>
+</ion-header>
+
+<ion-content>
+	<div class="cnh">
+
+        <h5>Foto CNH</h5>
+		<ion-row>
+
+			<ion-col col-6 class="col2" >
+			<span>Frente</span>
+			<div class="imagens" (click)="escolherImagem1()">
+				<img src="../../assets/images/sem-imagem.jpg" [class]="className1">
+				<img src="{{base64Image1}}" [class]="className2">
+			</div>
+			</ion-col>
+
+			<ion-col col-6 class="col2" >
+			<span>Verso</span>
+			<div class="imagens" (click)="escolherImagem2()">
+				<img src="../../assets/images/sem-imagem.jpg" [class]="className3">
+				<img src="{{base64Image2}}" [class]="className4">
+			</div>
+			</ion-col>
+
+		</ion-row>
+
+	</div>
+
+	<div class="residencial">
+
+        <h5>Comprovante de endereço</h5>
+
+        <ion-row>
+
+          <ion-col col-6 class="col2" >
+            <span>Frente</span>
+            <div class="imagens" (click)="escolherImagem3()">
+              <img src="../../assets/images/sem-imagem.jpg" [class]="className5">
+              <img src="{{base64Image3}}" [class]="className6">
+            </div>
+          </ion-col>
+
+        </ion-row>
+
+      </div>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+	<ion-button size="large"   class="btn" (click)="enviar()">Enviar</ion-button>
+</ion-footer>

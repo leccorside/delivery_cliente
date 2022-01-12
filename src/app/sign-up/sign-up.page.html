@@ -1,0 +1,91 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Registre-se</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<!--<div class="profile_container d-flex">
+		<ion-icon class="zmdi zmdi-image"></ion-icon>
+		<div class="img_box center_img">
+			<img src="assets/images/profile_pic_placeholder.png" class="crop_img"> 
+		</div>
+		<ion-icon class="zmdi zmdi-camera"></ion-icon>
+	</div>-->
+	<div class="form">
+		<ion-list lines="none">
+
+
+			<ion-item lines="none">
+				<div class="item_inner">
+					<ion-label position="fixed">Nome completo</ion-label>
+					<ion-input type="text" value="" placeholder="Nome completo"></ion-input>
+				</div>
+			</ion-item>
+
+			<ion-item lines="none">
+				<ion-label position="floating" style="color: #999;">CPF</ion-label>
+				<ion-input
+				type="tel"
+				onkeypress="mascara(this, cpf)"
+				[(ngModel)]="cpf"
+				maxlength="14" 
+				placeholder="000.000.000-00"></ion-input>
+			  </ion-item>
+		  
+			  <ion-item lines="none">
+				<ion-label position="floating" style="color: #999;">CNPJ</ion-label>
+				<ion-input
+				type="tel"
+				onkeypress="mascara(this, cnpj)"
+				[(ngModel)]="cnpj"
+				maxlength="18" 
+				placeholder="00.000.000/0000-00"></ion-input>
+			  </ion-item>
+			<!--<ion-item lines="none">
+				<div class="item_inner">
+					<ion-label position="fixed">{{'select_country' | translate}}</ion-label>
+					<ion-select mode="md" placeholder="{{'select_country_from_list' | translate}}" interface="action-sheet">
+						<ion-select-option value="1">Brazil</ion-select-option>
+						<ion-select-option value="2">India</ion-select-option>
+						<ion-select-option value="3">Ireland</ion-select-option>
+						<ion-select-option value="4">Japan</ion-select-option>
+						<ion-select-option value="5">Kenya</ion-select-option>
+						<ion-select-option value="6">Latvia</ion-select-option>
+						<ion-select-option value="7">Martinique</ion-select-option>
+						<ion-select-option value="8">Mexico</ion-select-option>
+						<ion-select-option value="9">Monaco</ion-select-option>
+						<ion-select-option value="10">Nepal</ion-select-option>
+					</ion-select>
+				</div>
+			</ion-item>-->
+			<ion-item lines="none">
+				<ion-label position="floating" style="color: #999;" color="primary">Celular</ion-label>
+				<ion-input
+				type="tel"
+				onkeypress="mascara(this, telefone2)"
+				[(ngModel)]="celular"
+				maxlength="15" 
+				placeholder="(00)00000-0000"></ion-input>
+			  </ion-item>
+			<ion-item lines="none">
+				<div class="item_inner">
+					<ion-label position="fixed">Senha</ion-label>
+					<ion-input type="password" value="" placeholder="Senha"></ion-input>
+				</div>
+			</ion-item>
+			<ion-item lines="none">
+				<div class="item_inner">
+					<ion-label position="fixed">Confirme a Senha</ion-label>
+					<ion-input type="password" value="" placeholder="Senha"></ion-input>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>
+<ion-footer class="ion-no-border">
+	<ion-button size="large"  class="btn" (click)="continue()">Continuar</ion-button>
+</ion-footer>
